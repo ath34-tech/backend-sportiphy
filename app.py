@@ -17,9 +17,48 @@ app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 
 # Firebase setup
-cred = credentials.Certificate(r"./CredFile.json")
+cred = credentials.Certificate({
+    "type": "service_account",
+    "project_id": "sportapp-ae7b7",
+    "private_key_id": "cc30233d0a22b953225d1caf7831526ffcd5e62f",
+    "private_key": """-----BEGIN PRIVATE KEY-----
+MIIEuwIBADANBgkqhkiG9w0BAQEFAASCBKUwggShAgEAAoIBAQCoOsLnEE4FKHA8
+rJpbQYQFcEe7kNeVBqM/f3Ewwer8NUED0N9ISHrwqZqb5xP3DJWgpZqGiw5mKxO+
+zEwlx1nt2+MHxwP8xn7IXsDCrgQe8sQcRTMd/vRx8d6+ZKj8nl55Ic+wVh4A9fWj
+ypsnqi0hgavppmvkzX6RxpxrN6naL7wkTYfub5oMf0w2/RwC8GR3AmlQi20EzqoG
+3LXNZMKemk4bBO9RPVviMDtunrRn44aa0hht6rdxW3SExq690068AJT5MkIx6cwQ
+IX51mJm3l2Zey4VWvqAz3vFVWd1lujVaE+gjEK51ZXBi9CcEkKUAtfMvZDeUZ3JT
+pcYrD3l/AgMBAAECggEATdZaZbTqlIJgZAJsrPqETkvkNMnQpbhbgj7CLZAb3LP7
+L/vNw9EdaQrgaXAikbU16g2VkNj4QZd+3FIEjZpOZrrNscSIeMWS1bzZrXn8mCE1
+UetGuoNDsRD7QdarRa81ARD+2pUN7t3e2PkejtyzYwRveX0yALx/6o0dxJINudCK
+AQLf6YnMHZW9xpBsHLcAVh59iteAODDsRxAafHS78dpai4eP+H0ERjS5WvChbUnk
+jaiFqFaxysLz67gK5mp2tqCUYu7Wl7++oFDgzmiYAvxFeY/aLjHn46JRET+VBDYB
+TiBaUIfwxmlvW1Ae5FEc+TnyL3TOHtgz8xgrjgo4UQKBgQDbkiwyr8mXe9cHQwrP
+Yb5WTXTDzlEYmQPiI9o5E+FSzpmiCxsWUrtwUsxjR6z4mdF5FFtIJrVcDEqK3Fsd
+VnZRoP5M7k+H8nae9WExhCI9lVzMyNw+xyJrOjcxQ9lC6/zDbo7JMKptYoPh4Qcp
+HrJGMd5ZtJ1zFmVnxTkJZLkuJwKBgQDEI/dD1TrwAV+cVobysx4sRoVRErYak3qS
+3k3W+l/zJ6zAPZYNXuDF3wcMfVgjJBz2OC9pycSKJSiyn9n26WhPFK7ckOP7I9Ch
+e6QIxKNYmZGcvHJA9pcdjSSVKL0opd5S7TyYvQqEHuBCLFLoOx7M8fR4HJe62HDM
+nsBc2ZrI6QKBgF3vzWTp++8JFlePASL0CEBX5uqWa++AFz86Y3Qj4zRQGz5OTgpg
+3rwRUEvxMDkzZYDNirf1h4WX5JQ/7eNBSGFn5SP4mKHqw4ECLdDHXPbH3enmzQM2
+oq0JPO+gvWR6Hatms0OzxFYD3bRXV37qGQ8a6quqL+o63Ktmnx47r1XlAoGBAJx6
+ySEv85ZYsiurCHyGFDNki6XTlL79G9QiUN2K4JO/+l1ghN7j69VRCnGXaoKWpBh3
+WLRASXGhFaf0SdNoAVTd/mdvnMLWnvLGDmcEYgEke3wdB9X2JTdpTF9HoinUsttb
+83UzlDk13NpOPFKUIA2Hlu9geFiTpuJIYNVysb9JAn8bR176PQM/16id5Trwoefn
+kIZKFPLtCGpaz4IDHgS6t66J5oa9LdJ0a4T0b62YxywaUj43oJNY1bSi0sVpleKs
+ZnxqisWX6ZPmozoRsjVYxWNGrs1AO8a96mAA8d4WQmyrDNrlmdlRO7NXQJvd7lXo
+mUYhOhEYdpf3q3wRu5Do
+-----END PRIVATE KEY-----""",
+    "client_email": "firebase-adminsdk-af8z3@sportapp-ae7b7.iam.gserviceaccount.com",
+    "client_id": "103764117382932395062",
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://oauth2.googleapis.com/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-af8z3%40sportapp-ae7b7.iam.gserviceaccount.com",
+    "universe_domain": "googleapis.com"
+})
 firebase_admin.initialize_app(cred)
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = r"./CredFile.json"
+# os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = r"./CredFile.json"
 
 db = firestore.Client()
 
