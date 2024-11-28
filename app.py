@@ -17,9 +17,9 @@ app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 
 # Firebase setup
-cred = credentials.Certificate(r".\CredFile.json")
+cred = credentials.Certificate(r"./CredFile.json")
 firebase_admin.initialize_app(cred)
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = r".\CredFile.json"
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = r"./CredFile.json"
 
 db = firestore.Client()
 
